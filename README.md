@@ -1,6 +1,6 @@
 # tx2
 tx2
-
+ 
 This is a introduction about TX2 setup.
 
 The TX2 we use can be obtained in http://connecttech.com/product/orbitty-carrier-for-nvidia-jetson-tx2-tx1/
