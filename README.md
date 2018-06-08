@@ -126,3 +126,5 @@ The BSP is downloaded in http://www.connecttech.com/ftp/Drivers/CTI-L4T-V112.tgz
      $ sudo make install
    
 
+possible issues: GraphCut deprecated in CUDA 7.5 and removed in 8.0
+Solution: https://github.com/opencv/opencv/pull/6510/commits/10896129b39655e19e4e7c529153cb5c2191a1db
