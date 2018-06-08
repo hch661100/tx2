@@ -1,0 +1,14 @@
+<launch>
+
+<node name="openpose_ros_node" pkg="openpose_ros" type="openpose_ros_node" respawn="false" output="screen">
+	<remap from ="image_left" to="/zed/left/image_rect_color" />
+	<remap from ="image_depth" to="/zed/depth/depth_registered" />
+	<remap from ="odom" to="/odom" />
+  </node>
+
+
+<node name="static_transform_publisher" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 -1.57 map camera 50" output="screen"/>
+    
+<node name="real_nbv_node" pkg="drone_cinematography" type="real_nbv_node"  output="screen"/>
+
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="openpose_ros_node" pkg="openpose_ros" type="openpose_ros_node" respawn="false" output="screen">
+	<remap from ="image_topic" to="/cam0/image_raw" />
+  </node>
+</launch>

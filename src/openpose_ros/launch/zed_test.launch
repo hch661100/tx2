@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="openpose_ros_node" pkg="openpose_ros" type="openpose_ros_node" respawn="false" output="screen">
+	<remap from ="image_left" to="/zed/left/image_rect_color" />
+	<remap from ="image_right" to="/zed/right/image_rect_color" />
+  </node>
+</launch>

@@ -1,0 +1,48 @@
+<launch>
+  <!--
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node> -->
+
+     <!-- launch video stream -->
+   <include file="$(find video_stream_opencv)/launch/camera.launch" >
+      <!-- node name and ros graph name -->
+      <arg name="camera_name" value="webcam" />
+      <!-- means video device 0, /dev/video0 -->
+      <arg name="video_stream_provider" value="0" />
+      <!-- throttling the querying of frames to -->
+      <arg name="fps" value="30" />
+      <!-- setting frame_id -->
+      <arg name="frame_id" value="webcam_optical_frame" />
+      <!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
+      "file:///$(find your_camera_package)/config/your_camera.yaml" -->
+      <arg name="camera_info_url" value="" />
+      <!-- flip the image horizontally (mirror it) -->
+      <arg name="flip_horizontal" value="false" />
+      <!-- flip the image vertically -->
+      <arg name="flip_vertical" value="false" />
+    <!-- force width and height, 0 means no forcing -->
+      <!-- 
+      <arg name="width" value="1280"/>
+      <arg name="height" value="720"/>
+    -->
+      <!-- visualize on an image_view window the stream generated -->
+      <arg name="visualize" value="false" />
+   </include>
+   
+  <!--
+  <node name="image_view" pkg="rqt_image_view" type="rqt_image_view" respawn="false" output="screen">
+    <remap from="image" to="/webcam/image_raw"/>
+    <param name="autosize" value="true" />
+  </node>
+  -->
+
+  <node name="openpose_ros_node" pkg="openpose_ros" type="openpose_ros_node" respawn="false" output="screen">
+	<remap from ="image_topic" to="/webcam/image_raw" />
+  </node>
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+
+  <node name="sgbm_ros_node" pkg="sgbm_ros" type="sgbm_ros_node" respawn="false" output="screen">
+	<remap from ="~image_left" to="/zed/left/image_rect_color" />
+	<remap from ="~image_right" to="/zed/right/image_rect_color" />
+
+	<param name="p1"   value="700.0"  />
+   	<param name="p2"   value="2400.0" />
+  </node>
+
+</launch>

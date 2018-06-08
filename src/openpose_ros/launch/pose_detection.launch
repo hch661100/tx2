@@ -1,0 +1,27 @@
+<launch>
+
+    <!-- Odometry coordinate frame -->
+    <arg name="odometry_frame"        default="map2" />
+
+    <group ns="zed">
+        <include file="$(find zed_wrapper)/launch/zed_camera.launch">
+            <!-- compliant mode for rviz -->
+            <arg name="odometry_frame"        value="$(arg odometry_frame)" />
+        </include>
+    </group>
+
+
+<node name="openpose_ros_node" pkg="openpose_ros" type="openpose_ros_node" respawn="false" output="screen">
+	<!--remap from ="image_left" to="/crop_img" /-->
+	<remap from ="image_left" to="/zed/left/image_rect_color" />
+	<remap from ="image_depth" to="/zed/depth/depth_registered" />
+	<remap from ="odom" to="/delay_odom" />
+  </node>
+
+
+<node name="static_transform_publisher" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 -1.57 map camera 50" output="screen"/>
+    
+<node name="real_nbv_node" pkg="drone_cinematography" type="real_nbv_node"  output="screen"/>
+<node name="delay_filter_node" pkg="drone_cinematography" type="delay_filter_node"  output="screen"/>
+
+</launch>

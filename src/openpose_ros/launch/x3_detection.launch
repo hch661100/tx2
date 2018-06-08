@@ -1,0 +1,10 @@
+<launch>
+
+<node name="openpose_ros_node_x3_3d" pkg="openpose_ros" type="openpose_ros_node_x3_3d" respawn="false" output="screen">
+	<remap from ="image_left" to="/x3/image_raw" />
+	<remap from ="odom" to="/odom" />
+	<remap from ="gimbal" to="/djiros33/gimbal_angle" />
+  </node>
+
+
+</launch>

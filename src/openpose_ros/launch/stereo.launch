@@ -1,0 +1,21 @@
+<launch>
+  <node name="openpose_ros_node" pkg="openpose_ros" type="openpose_ros_node" respawn="false" output="screen">
+	<remap from ="image_left" to="/zed/left/image_rect_color" />
+	<remap from ="image_right" to="/zed/right/image_rect_color" />
+  </node>
+
+  <node name="pose_3d_node" pkg="pose_3d" type="pose_3d_node" respawn="false" output="screen">
+	<remap from ="~pose_l" to="/pose_detected_l" />
+	<remap from ="~pose_r" to="/pose_detected_r" />
+	<remap from ="~depth_img" to="/sgbm_ros_node/depth_image" />
+  </node>
+
+  <node name="sgbm_ros_node" pkg="sgbm_ros" type="sgbm_ros_node" respawn="false" output="screen">
+	<remap from ="~image_left" to="/zed/left/image_rect_color" />
+	<remap from ="~image_right" to="/zed/right/image_rect_color" />
+
+	<param name="p1"   value="700.0"  />
+   	<param name="p2"   value="2400.0" />
+  </node>
+
+</launch>
