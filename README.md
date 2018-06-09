@@ -128,3 +128,17 @@ The BSP is downloaded in http://www.connecttech.com/ftp/Drivers/CTI-L4T-V112.tgz
 
 possible issues: GraphCut deprecated in CUDA 7.5 and removed in 8.0
 Solution: https://github.com/opencv/opencv/pull/6510/commits/10896129b39655e19e4e7c529153cb5c2191a1db
+
+
+================================================================================
+			Install ROS
+================================================================================
+    
+    install tutorial http://wiki.ros.org/kinetic/Installation/Ubuntu
+    possible issues:  Initialize rosdep
+	sudo rosdep init
+	rosdep update
+	But it gives following error.
+	ERROR: cannot download default sources list from: https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list
+	
+	Solution: sudo apt-get install ca-cacert
