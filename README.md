@@ -68,6 +68,7 @@ The BSP is downloaded in http://www.connecttech.com/ftp/Drivers/CTI-L4T-V112.tgz
 ================================================================================
 			Install OpenCV3.2
 ================================================================================
+    Source: https://github.com/jetsonhacks/buildOpenCVTX2
     
     $ sudo apt-add-repository universe
     $ sudo apt-get update
@@ -124,7 +125,7 @@ The BSP is downloaded in http://www.connecttech.com/ftp/Drivers/CTI-L4T-V112.tgz
       -D WITH_GSTREAMER=ON \
       -D WITH_GSTREAMER_0_10=OFF \
       -D WITH_QT=ON \
-      -D WITH_OPENGL=ON \
+      -D WITH_OPENGL=OFF \
       ../
      $ make
      $ sudo make install
