@@ -87,41 +87,45 @@ The BSP is downloaded in http://www.connecttech.com/ftp/Drivers/CTI-L4T-V112.tgz
 	    libtbb-dev \
 	    libgtk2.0-dev \
 	    pkg-config
+    $  sudo apt-get install -y \
+    cmake \
+    libavcodec-dev \
+    libavformat-dev \
+    libavutil-dev \
+    libeigen3-dev \
+    libglew-dev \
+    libgtk2.0-dev \
+    libgtk-3-dev \
+    libjasper-dev \
+    libjpeg-dev \
+    libpng12-dev \
+    libpostproc-dev \
+    libswscale-dev \
+    libtbb-dev \
+    libtiff5-dev \
+    libv4l-dev \
+    libxvidcore-dev \
+    libx264-dev \
+    qt5-default \
+    zlib1g-dev \
+    pkg-config
     $ sudo apt-get install python-dev python-numpy python-py python-pytest
     $ mkdir build
     $ cd build
-    $ cmake \
-	    -DCMAKE_BUILD_TYPE=Release \
-	    -DCMAKE_INSTALL_PREFIX=/usr \
-	    -DBUILD_PNG=OFF \
-	    -DBUILD_TIFF=OFF \
-	    -DBUILD_TBB=OFF \
-	    -DBUILD_JPEG=OFF \
-	    -DBUILD_JASPER=OFF \
-	    -DBUILD_ZLIB=OFF \
-	    -DBUILD_EXAMPLES=ON \
-	    -DBUILD_opencv_java=OFF \
-	    -DBUILD_opencv_python2=ON \
-	    -DBUILD_opencv_python3=OFF \
-	    -DENABLE_NEON=ON \
-	    -DWITH_OPENCL=OFF \
-	    -DWITH_OPENMP=OFF \
-	    -DWITH_FFMPEG=ON \
-	    -DWITH_GSTREAMER=OFF \
-	    -DWITH_GSTREAMER_0_10=OFF \
-	    -DWITH_CUDA=ON \
-	    -DWITH_GTK=ON \
-	    -DWITH_VTK=OFF \
-	    -DWITH_TBB=ON \
-	    -DWITH_1394=OFF \
-	    -DWITH_OPENEXR=OFF \
-	    -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-8.0 \
-	    -DCUDA_ARCH_BIN=6.2 \
-	    -DCUDA_ARCH_PTX="" \
-	    -DINSTALL_C_EXAMPLES=ON \
-	    -DINSTALL_TESTS=OFF \
-	    -DOPENCV_TEST_DATA_PATH=../opencv_extra/testdata \
-	    ../opencv
+    $ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+      -D CMAKE_INSTALL_PREFIX=/usr \
+      -D WITH_CUDA=ON \
+      -D CUDA_ARCH_BIN=6.2 \
+      -D CUDA_ARCH_PTX="" \
+      -D ENABLE_FAST_MATH=ON \
+      -D CUDA_FAST_MATH=ON \
+      -D WITH_CUBLAS=ON \
+      -D WITH_LIBV4L=ON \
+      -D WITH_GSTREAMER=ON \
+      -D WITH_GSTREAMER_0_10=OFF \
+      -D WITH_QT=ON \
+      -D WITH_OPENGL=ON \
+      ../
      $ make
      $ sudo make install
    
