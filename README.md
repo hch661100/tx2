@@ -66,7 +66,7 @@ The BSP is downloaded in http://www.connecttech.com/ftp/Drivers/CTI-L4T-V112.tgz
    
 
 ================================================================================
-			Install OpenCV3.1
+			Install OpenCV3.2
 ================================================================================
     
     $ sudo apt-add-repository universe
@@ -145,9 +145,12 @@ Solution: https://github.com/opencv/opencv/pull/6510/commits/10896129b39655e19e4
 ================================================================================
 			Install Caffe OpenPose
 ================================================================================
-     sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev libatlas-base-dev libleveldb-dev
+     sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev libatlas-base-dev libleveldb-dev libsnappy-dev
      ~/catkin_ws/build/glog_catkin/glog_src-prefix/src/glog_src$ ln -s /usr/share/automake-1.15/config.guess .
      ~/catkin_ws/build/glog_catkin/glog_src-prefix/src/glog_src$ ln -s /usr/share/automake-1.15/config.sub .
 
      cd openpose
      make
+  
+     add ovx.hpp https://github.com/opencv/opencv/blob/master/modules/core/include/opencv2/core/ovx.hpp
+    
