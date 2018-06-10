@@ -1,5 +1,5 @@
-# tx2
-tx2
+# TX2
+
  
 This is a introduction about TX2 setup.
 
@@ -159,3 +159,8 @@ Solution: https://github.com/opencv/opencv/pull/6510/commits/10896129b39655e19e4
   
      add ovx.hpp https://github.com/opencv/opencv/blob/master/modules/core/include/opencv2/core/ovx.hpp
     
+================================================================================
+			Install TensorFlow
+================================================================================
+      https://github.com/lhelontra/tensorflow-on-arm/releases
+      sudo pip3 install --upgrade tensorflow-1.3.1-cp35-none-linux_aarch64.whl
